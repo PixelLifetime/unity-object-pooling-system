@@ -121,7 +121,7 @@ public class ObjectPool : MonoBehaviourSingleton<ObjectPool>
 		{
 			this.OriginalInstance.GetComponent<IPoolable>().Pool = null;
 
-			ObjectPool.Instance._instanceId_pool.Remove(key: this.InstanceId);
+			ObjectPool._Instance._instanceId_pool.Remove(key: this.InstanceId);
 
 			SceneManager.sceneLoaded -= this.OnSceneLoaded;
 			SceneManager.sceneUnloaded -= this.OnSceneUnloaded;
@@ -192,7 +192,7 @@ public class ObjectPool : MonoBehaviourSingleton<ObjectPool>
 			this.InstanceId = this.OriginalInstance.GetInstanceID();
 			this.DontDestroyOnLoad = dontDestroyOnLoad;
 
-			if (ObjectPool.Instance._instanceId_pool.ContainsKey(key: this.InstanceId))
+			if (ObjectPool._Instance._instanceId_pool.ContainsKey(key: this.InstanceId))
 				return;
 
 			this.Configure();
@@ -212,7 +212,7 @@ public class ObjectPool : MonoBehaviourSingleton<ObjectPool>
 
 			this.Populate(quantity: this.InitialCapacity, dontDestroyOnLoad: this.DontDestroyOnLoad);
 
-			ObjectPool.Instance._instanceId_pool.Add(
+			ObjectPool._Instance._instanceId_pool.Add(
 				key: this.InstanceId,
 				value: this
 			);

@@ -26,7 +26,7 @@ public class ObjectPoolInitializer : MonoBehaviour
 	private void Start()
 	{
 #if UNITY_EDITOR
-		if (ObjectPool.Instance == null)
+		if (ObjectPool._Instance == null)
 			Debug.LogError("Object pool instance is null. Make sure that `ObjectPool` is created before this instance.");
 #endif
 
