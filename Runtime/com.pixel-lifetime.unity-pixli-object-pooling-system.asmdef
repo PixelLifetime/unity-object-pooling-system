@@ -1,7 +1,9 @@
 {
     "name": "com.pixel-lifetime.unity-object-pooling-system",
+    "rootNamespace": "",
     "references": [
-        "com.pixel-lifetime.unity-pixli-miscellaneous"
+        "com.pixel-lifetime.unity-pixli-miscellaneous",
+        "com.pixel-lifetime.unity-pixli-extensions"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
