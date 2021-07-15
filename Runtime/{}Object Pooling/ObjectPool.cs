@@ -50,7 +50,7 @@ public class ObjectPool : MonoBehaviourSingleton<ObjectPool>
 		{
 			for (int b = 0; b < quantity; b++)
 			{
-				IPoolable poolable = Object.Instantiate(original: this.OriginalInstance).GetComponent<IPoolable>();
+				IPoolable poolable = Object.Instantiate(original: this.OriginalInstance, position: this.OriginalInstance.transform.position, rotation: this.OriginalInstance.transform.rotation).GetComponent<IPoolable>();
 
 				if (dontDestroyOnLoad)
 					Object.DontDestroyOnLoad(target: poolable.GameObject);
@@ -103,6 +103,7 @@ public class ObjectPool : MonoBehaviourSingleton<ObjectPool>
 			return poolable;
 		}
 
+		//TODO: Resolve stuff with middleware already, it should be outside of this and modular.
 		private void Configure()
 		{
 			this.ReleasePipeline.Add(
