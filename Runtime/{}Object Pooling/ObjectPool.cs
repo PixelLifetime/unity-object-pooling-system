@@ -135,7 +135,7 @@ public class ObjectPool : MonoBehaviourSingleton<ObjectPool>
 			int iteration = this._unityDebugSceneLoadedIteration++;
 
 			Debug.Log($"[Loaded] Invoker: {this.InstanceId}: name - {this.OriginalInstance}");
-			foreach (KeyValuePair<int, Pool> item in ObjectPool.Instance._instanceId_pool)
+			foreach (KeyValuePair<int, Pool> item in ObjectPool._Instance._instanceId_pool)
 			{
 				Debug.Log($"[{iteration}] OnSceneLoaded[{scene.path}]: key[{item.Key}]: OriginalInstance[{item.Value.OriginalInstance}] & InstanceId[{item.Value.InstanceId}]");
 			}
@@ -149,7 +149,7 @@ public class ObjectPool : MonoBehaviourSingleton<ObjectPool>
 			int iteration = this._unityDebugSceneUnloadedIteration++;
 
 			Debug.Log($"[Unloaded] Invoker: {this.InstanceId}: name - {this.OriginalInstance}");
-			foreach (KeyValuePair<int, Pool> item in ObjectPool.Instance._instanceId_pool)
+			foreach (KeyValuePair<int, Pool> item in ObjectPool._Instance._instanceId_pool)
 			{
 				Debug.Log($"[{iteration}] OnSceneUnloaded[{scene.path}]: key[{item.Key}]: OriginalInstance[{item.Value.OriginalInstance}] & InstanceId[{item.Value.InstanceId}]");
 			}
